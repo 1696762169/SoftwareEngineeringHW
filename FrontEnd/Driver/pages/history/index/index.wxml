@@ -1,4 +1,15 @@
 <!--pages/history/index/index.wxml-->
-<text>pages/history/index/index.wxml</text>
+<scroll-view id="scroll-area" style="height: {{scrollHeight}};" scroll-y>
+<!-- <scroll-view id="scroll-area" style="height: 500px;" scroll-y> -->
+  <order></order>
+  <order></order>
+  <order></order>
+  <order></order>
+  <order></order>
+  <order></order>
+  <order></order>
+  <order></order>
+  <order></order>
+</scroll-view>
 
 <tabbar id="tabbar"></tabbar>

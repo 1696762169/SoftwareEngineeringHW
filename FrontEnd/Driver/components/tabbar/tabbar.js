@@ -24,6 +24,5 @@ Page({
     wx.redirectTo({
       url: url,
     });
-    console.info(url);
   },
 });

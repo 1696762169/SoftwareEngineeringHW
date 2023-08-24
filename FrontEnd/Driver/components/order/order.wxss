@@ -1,0 +1,4 @@
+/* components/order/order.wxss */
+.order{
+  width: 100%;
+}

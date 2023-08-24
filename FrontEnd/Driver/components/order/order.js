@@ -1,7 +1,4 @@
-// pages/history/index/index.js
-
-const utils = require("../../../utils/util");
-
+// components/order/order.js
 Page({
 
   /**
@@ -15,16 +12,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.selectComponent("#tabbar").setData({active: 1});
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    utils.tabbarTop((top) =>{
-      this.setData({"scrollHeight": `${top}px`});
-    });
+
   },
 
   /**

@@ -1,0 +1,14 @@
+<!--components/order/order.wxml-->
+<van-cell-group>
+  <van-cell title="价格" value="状态" size="large"></van-cell>
+  <van-cell use-label-slot center>
+    <view slot="label">
+      <view class="van-cell-label">起点：</view>
+      <view class="van-cell-label">终点：</view>
+      <view class="van-cell-label">下单时间：</view>
+    </view>
+    <view slot="right-icon">
+      <van-button plain hairline type="danger" size="small">删除订单</van-button>
+    </view>
+  </van-cell>
+</van-cell-group>
