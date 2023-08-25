@@ -1,0 +1,5 @@
+db文件夹里放数据库的内容
+driver文件夹里放司机特有的内容
+passenger文件夹里放乘客特有的内容
+其他通用的代码直接放外面
+test_client.py和test_sever.py两个文件是我用来测试的临时文件
