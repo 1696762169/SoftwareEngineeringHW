@@ -1,66 +1,30 @@
 // components/order/order.js
-Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
+Component({
+  // 定义属性
+  properties: {
+    orderId: String,
+    price: String,
+    state: String,
+    start: String,
+    end: String,
+    time: String,
   },
+  methods: {
+    // 进入订单详细界面方法
+    enterOrder() {
+      const orderId = this.properties.orderId;
+      wx.navigateTo({
+        url: "/pages/history/order/order",
+        success: page => {
+          // 通过eventChannel向被打开页面传送数据
+          page.eventChannel.emit("orderId", orderId);
+        }
+      })
+    },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+    // 删除订单方法
+    deleteOrder() {
+      console.log(`删除了订单：${this.properties.orderId}`);
+    }
   }
 })

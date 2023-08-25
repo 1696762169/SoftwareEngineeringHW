@@ -6,7 +6,8 @@
     "components/tabbar/tabbar",
     "pages/history/index/index",
     "pages/user/index/index",
-    "components/order/order"
+    "components/order/order",
+    "pages/history/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",
