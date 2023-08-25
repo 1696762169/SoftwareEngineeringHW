@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `TaxHailingSystem`.`passenger` (
   `passenger_score` INT NOT NULL DEFAULT 10,#分数从0-10分，初始默认10分
   `location_no` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`passenger_no`),
-  FOREIGN KEY(location_no) REFERENCES location(location_no)
+  FOREIGN KEY(location_no) REFERENCES `location`(location_no)
   )ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `TaxHailingSystem`.`driver` (
     `driver_duration` TIME NOT NULL  DEFAULT "00:00:00",#司机工作时间
     `driver_salary` DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     PRIMARY KEY (`driver_no`),
-    FOREIGN KEY(location_no) REFERENCES location(location_no)
+    FOREIGN KEY(location_no) REFERENCES `location`(location_no)
     )ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -83,11 +83,28 @@ CREATE TABLE IF NOT EXISTS `TaxHailingSystem`.`order` (
     `P_comment_no` VARCHAR(10) NOT NULL,
     `D_comment_no` VARCHAR(10) NOT NULL,
     PRIMARY KEY (`order_number`),
-    FOREIGN KEY(passenger_no) REFERENCES passenger(passenger_no),
-    FOREIGN KEY(driver_no) REFERENCES driver(driver_no),
-    FOREIGN KEY(P_comment_no) REFERENCES comment(comment_no),
-    FOREIGN KEY(D_comment_no) REFERENCES comment(comment_no)
+    FOREIGN KEY(passenger_no) REFERENCES `passenger`(passenger_no),
+    FOREIGN KEY(driver_no) REFERENCES `driver`(driver_no),
+    FOREIGN KEY(P_comment_no) REFERENCES `comment`(comment_no),
+    FOREIGN KEY(D_comment_no) REFERENCES `comment`(comment_no)
     )ENGINE = InnoDB;
 
+USE `TaxHailingSystem`
 
+INSERT INTO `TaxHailingSystem`.`location` (
+    `location_no` ,
+    `longitude`,
+    `latitude` ,
+    `location_name`,
+    `current_time`
+    )VALUES('123456','123.123','123.123','djskfhjkd',DEFAULT);
 
+INSERT INTO `TaxHailingSystem`.`passenger` (`passenger_name`,
+  `passenger_no`,
+  `passenger_phonenumber`,
+  `passenger_score` ,
+  `location_no` ) 
+  VALUES ('wu', '123456','123456', 10, '123456');
+COMMIT;
+
+select * from `TaxHailingSystem`.`passenger`;
