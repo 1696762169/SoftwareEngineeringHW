@@ -4,8 +4,6 @@ import traceback
 from collections import namedtuple
 import traceback
 
-global num_of_orders
-num_of_orders=0
 
 class DbResult(object):
 
