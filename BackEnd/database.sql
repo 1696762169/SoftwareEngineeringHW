@@ -39,12 +39,12 @@ DROP TABLE IF EXISTS `TaxHailingSystem`.`driver` ;
 CREATE TABLE IF NOT EXISTS `TaxHailingSystem`.`driver` (
     `driver_name` VARCHAR(30) NOT NULL,
     `driver_no` VARCHAR(15) NOT NULL,#司机微信号
-    `driver_phonenumber` VARCHAR(11) NOT NULL,
-    `car_no` VARCHAR(5) NOT NULL,#5位车牌号
+    `driver_phonenumber` VARCHAR(11) NOT NULL DEFAULT '',
+    `car_no` VARCHAR(5) NOT NULL DEFAULT '',#5位车牌号
     `car_description` VARCHAR(300) NOT NULL DEFAULT"",#长度300字符的车辆描述，包括颜色、品牌等
-    `current_content` INT NOT NULL,#车子当前载客量
-    `driver_score` INT NOT NULL,#司机评分
-    `location_no` VARCHAR(10) NOT NULL,
+    `current_content` INT NOT NULL DEFAULT 0,#车子当前载客量
+    `driver_score` INT NOT NULL DEFAULT 10,#司机评分
+    `location_no` VARCHAR(10) ,
     `driver_status` VARCHAR(10) NOT NULL DEFAULT "off",#司机上下班状态："on""off",默认是下班"off"
     `driver_duration` TIME NOT NULL  DEFAULT "00:00:00",#司机工作时间
     `driver_salary` DECIMAL(10,2) NOT NULL DEFAULT 0.00,
@@ -80,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `TaxHailingSystem`.`order` (
     `order_price` DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     `order_start` VARCHAR(100) NOT NULL,#出发地
     `order_end` VARCHAR(100) NOT NULL,#目的地
-    `P_comment_no` VARCHAR(10) NOT NULL,
-    `D_comment_no` VARCHAR(10) NOT NULL,
+    `P_comment_no` VARCHAR(10)  ,
+    `D_comment_no` VARCHAR(10)  ,
     PRIMARY KEY (`order_number`),
     FOREIGN KEY(passenger_no) REFERENCES `passenger`(passenger_no),
     FOREIGN KEY(driver_no) REFERENCES `driver`(driver_no),
@@ -109,5 +109,14 @@ INSERT INTO `TaxHailingSystem`.`passenger` (`passenger_name`,
   `passenger_no` ) 
   VALUES ('wu', '123456');
 
+INSERT INTO `TaxHailingSystem`.`DRIVER` (`DRIVER_name`,
+  `DRIVER_no` ) 
+  VALUES ('HALLEN', '654321');
 
 select * from `TaxHailingSystem`.`passenger`;
+
+INSERT INTO `TaxHailingSystem`.`order`(`order_number` ,`order_time`,`order_status` ,`passenger_no` ,`driver_no` ,`order_price`,`order_start` ,
+            `order_end`) 
+            VALUES('123456',DEFAULT,7,"123456","654321",20.01,"adsad","dadasd");
+
+COMMIT;
