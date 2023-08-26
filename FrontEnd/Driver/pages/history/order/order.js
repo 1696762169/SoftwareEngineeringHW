@@ -34,13 +34,13 @@ Page({
   // 获取订单信息
   getOrder(orderId, callback) {
     const order = { "orderId" : orderId,
-    "price" : 13.44,
-    "distance" : 53.56,
-    "time" : 134,
-    "rank" : 5,
-    "start" : {latitude: 40.034513, longitude: 114.432451},
-    "end" : {latitude: 39.824366, longitude: 115.721614},
-    "driverId" : 12345
+      price : 13.44,
+      distance : 53.56,
+      time : 134,
+      rank : 5,
+      start : {latitude: 40.034513, longitude: 114.432451},
+      end : {latitude: 39.824366, longitude: 115.721614},
+      driverId : 12345
     };
     callback(order);
   },

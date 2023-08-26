@@ -1,2 +1,15 @@
 <!--pages/work/confirm/confirm.wxml-->
-<text>pages/work/confirm/confirm.wxml</text>
+<view style="height: {{mapHeight}}px; width: 100%;">
+  <map class="map" id="map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{true}}" polyline="{{polyline}}"></map>
+</view>
+<van-cell id="info-area" title="预估金额：{{order.price}}￥" size="large" use-label-slot>
+  <view slot="right-icon">
+    <van-button type="primary" size="small" catch:tap="confirm">确认接单</van-button>
+  </view>
+  <view slot="label">
+    <view class="van-cell-label">起点：{{order.startAddress}}</view>
+    <view class="van-cell-label">终点：{{order.endAddress}}</view>
+    <view class="van-cell-label">预估到达起点时间：{{order.startPeriod}}分钟</view>
+    <view class="van-cell-label">预估行程时间：{{order.period}}分钟</view>
+  </view>
+</van-cell>

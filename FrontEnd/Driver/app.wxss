@@ -24,3 +24,8 @@
 .right-align {
   text-align: right;
 }
+
+.map {
+  width: 100%;
+  height: 100%;
+}
