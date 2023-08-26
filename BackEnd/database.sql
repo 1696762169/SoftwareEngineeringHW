@@ -75,9 +75,13 @@ CREATE TABLE IF NOT EXISTS `TaxHailingSystem`.`order` (
     `order_number` VARCHAR(10) NOT NULL,
     `order_time` DATETIME  NOT NULL  DEFAULT CURRENT_TIMESTAMP,
     `order_status` INT NOT NULL,#订单状态 0-乘客下单、1-司机接单、2-司机已到达乘车点、3-开始行程、4-行程结束、5-支付成功、6-订单取消、7-订单关闭
-    `passenger_no` VARCHAR(15) NOT NULL,
-    `driver_no` VARCHAR(15) NOT NULL,
+    `passenger_no` VARCHAR(15) ,
+    `driver_no` VARCHAR(15) ,
     `order_price` DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    `order_start_longitude` double(50,6) NOT NULL COMMENT '起点经度',
+    `order_start_latitude` double(50,6) NOT NULL COMMENT '起点纬度',
+    `order_end_longitude` double(50,6) NOT NULL COMMENT '终点经度',
+    `order_end_latitude` double(50,6) NOT NULL COMMENT '终点纬度',
     `order_start` VARCHAR(100) NOT NULL,#出发地
     `order_end` VARCHAR(100) NOT NULL,#目的地
     `P_comment_no` VARCHAR(10)  ,

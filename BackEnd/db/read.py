@@ -51,6 +51,21 @@ def SearchHistoryOrdersByWeChatID(user_type,user_id):
         )
     return DR
 
+def SearchOrderByOrderID(order_id):
+    record_names = (
+            'order_number' ,
+            'order_time',
+            'order_status' ,
+            'passenger_no' ,
+            'driver_no' ,
+            'order_price' ,
+            'order_start' ,
+            'order_end',
+            'P_comment_no' ,
+            'D_comment_no')
+    sql = 'SELECT * FROM `order` WHERE order_number = %s'
+    DR = DbResult(record_names, baseSelect(sql, (order_id)))
+
 if __name__=="__main__":
     # DR=SearchHistoryOrdersByWeChatID("passenger","123456")
     DR=SearchHistoryOrdersByWeChatID("driver","654321")
