@@ -53,9 +53,9 @@ def baseSelect(sqlInput, tupleInput):
 
     return returnValue
 
-if __name__ == '__main__':
-    sql = 'SELECT passenger_no FROM passenger WHERE passenger_no = %s'
-    print(baseSelect(sql, ('123456')))
+# if __name__ == '__main__':
+#     sql = 'SELECT passenger_no FROM passenger WHERE passenger_no = %s'
+#     print(baseSelect(sql, ('123456')))
 
 # if __name__ == '__main__':
 #     DR = DbResult(
