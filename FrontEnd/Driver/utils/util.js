@@ -21,7 +21,7 @@ const tabbarTop = (callback) => {
       const screenHeight = res.windowHeight;
       if (typeof callback === 'function') {
         // 我tm就是没法获取这个底部导航栏的高度 84是源码里在iPhoneX里的高度
-        callback(screenHeight - 84);
+        callback(screenHeight - getApp().globalData.tabbarHeight);
       }
     }
   });

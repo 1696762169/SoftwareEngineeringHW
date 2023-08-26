@@ -1,3 +1,23 @@
 <!--pages/work/index/index.wxml-->
-<text>pages/work/index/index.wxml</text>
+<view class="fixed-button-area">
+  <van-button  catch:tap="switchState"
+    type="{{working ? 'danger' : 'primary'}}"
+    size="{{working ? 'small' : 'normal'}}"
+    style="padding-left: {{working ? 600 : 550}}rpx;">
+    {{working ? "结束工作" : "开始工作"}}
+  </van-button>
+</view>
+<view style="height: {{windowHeight}}px; width: 100%;">
+  <view style="height: 45%; width: 100%;">
+    <map class="map" id="map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{true}}"></map>
+  </view>
+  <scroll-view style="height: 55%; width: 100%;" scroll-y>
+    <order wx:for="{{orderList}}" wx:key="orderId"
+      orderId="{{item.orderId}}"
+      price="{{item.price}}"
+      start="{{item.start}}"
+      end="{{item.end}}"
+      period="{{item.period}}"></order>
+  </scroll-view>
+</view>
 <tabbar></tabbar>

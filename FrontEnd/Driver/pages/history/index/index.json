@@ -2,5 +2,6 @@
   "usingComponents": {
     "tabbar": "/components/tabbar/tabbar",
     "order": "/components/order/order"
-  }
+  },
+  "navigationBarTitleText": "历史订单"
 }

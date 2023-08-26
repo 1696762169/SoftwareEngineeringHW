@@ -1,0 +1,8 @@
+<!--components/pre-order/pre-order.wxml-->
+<van-cell title="预估金额：{{price}}￥" size="large" use-label-slot bind:tap="enterOrder">
+  <view slot="label">
+    <view class="van-cell-label">起点：{{start}}</view>
+    <view class="van-cell-label">终点：{{end}}</view>
+    <view class="van-cell-label">预估行程时间：{{period}}分钟</view>
+  </view>
+</van-cell>

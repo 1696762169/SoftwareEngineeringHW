@@ -3,6 +3,7 @@ const mapUtil = require("../../../utils/map");
 
 Page({
   data: {
+    // 设置是否显示司机信息
     showDriver: true
   },
 
@@ -12,22 +13,14 @@ Page({
       wx.getSystemInfo({
         success: system => {
           this.setData({
-            windowHeight: system.windowHeight,
             mapHeight: system.windowHeight - area.height
           });
         }
       });
     }).exec();
-    wx.getSystemInfo({
-      success: (res) => {
-        this.setData({
-          windowHeight: res.windowHeight
-        });
-      }
-    });
 
     // 获取订单ID
-    this.getOpenerEventChannel().on("orderId", id => {
+    this.getOpenerEventChannel().once("orderId", id => {
       // 获取订单
       this.getOrder(id, order => {
         // 设置订单与司机信息
@@ -66,5 +59,5 @@ Page({
   // 投诉订单
   complain(event) {
 
-  }
+  },
 })

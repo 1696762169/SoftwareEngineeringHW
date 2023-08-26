@@ -1,0 +1,30 @@
+/* pages/work/result/result.wxss */
+.page-container {
+  /* 设置页面容器样式，确保内容不超出屏幕 */
+  height: 100vh; /* 100% 屏幕高度 */
+  display: flex;
+  flex-direction: column;
+}
+
+.info-container {
+  height: 80%;
+  width: 100%;
+}
+
+.bottom-button-container {
+  margin-top: auto; /* 将容器顶部上移，使其位于页面底部 */
+  text-align: center; /* 按钮居中 */
+  padding-bottom: 200rpx; /* 可根据需要调整按钮容器的内边距 */
+}
+
+.result-title {
+  font: outline;
+  font-size: x-large;
+  text-align: center;
+}
+.result {
+  font: outline;
+  font-size: xx-large;
+  color: #07c160;
+  text-align: center;
+}
