@@ -1,5 +1,5 @@
-from . import DbResult
-from . import baseSelect
+from __init__ import DbResult
+from __init__ import baseSelect
 
 def checkExistByWeChatID(Type,id, tableName):
     if Type=="passenger":
