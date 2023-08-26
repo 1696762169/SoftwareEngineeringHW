@@ -15,7 +15,7 @@ def login():
         user_type = data['userType']
         wechat_id = data['weChatID']
         tablename=user_type
-        DR= read.checkExistByUsrNo(Type=user_type,id=wechat_id,tablename=tablename)
+        DR= read.checkExistByUsrNo(user_type=user_type,user_id=wechat_id,tablename=tablename)
 
         if DR.size() != 1:#没有找到
             return jsonify({"message": 'INVALID_USER'})
