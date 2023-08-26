@@ -24,9 +24,9 @@ DROP TABLE IF EXISTS `TaxHailingSystem`.`passenger` ;
 CREATE TABLE IF NOT EXISTS `TaxHailingSystem`.`passenger` (
   `passenger_name` VARCHAR(30) NOT NULL,
   `passenger_no` VARCHAR(15) NOT NULL,#微信号的位数在6-15之间
-  `passenger_phonenumber` VARCHAR(11) NOT NULL,
+  `passenger_phonenumber` VARCHAR(11) NOT NULL DEFAULT '',
   `passenger_score` INT NOT NULL DEFAULT 10,#分数从0-10分，初始默认10分
-  `location_no` VARCHAR(10) NOT NULL,
+  `location_no` VARCHAR(10),
   PRIMARY KEY (`passenger_no`),
   FOREIGN KEY(location_no) REFERENCES `location`(location_no)
   )ENGINE = InnoDB;
@@ -99,12 +99,15 @@ INSERT INTO `TaxHailingSystem`.`location` (
     `current_time`
     )VALUES('123456','123.123','123.123','djskfhjkd',DEFAULT);
 
-INSERT INTO `TaxHailingSystem`.`passenger` (`passenger_name`,
+/* INSERT INTO `TaxHailingSystem`.`passenger` (`passenger_name`,
   `passenger_no`,
   `passenger_phonenumber`,
   `passenger_score` ,
   `location_no` ) 
-  VALUES ('wu', '123456','123456', 10, '123456');
-COMMIT;
+  VALUES ('wu', '123456','123456', 10, '123456'); */
+INSERT INTO `TaxHailingSystem`.`passenger` (`passenger_name`,
+  `passenger_no` ) 
+  VALUES ('wu', '123456');
+
 
 select * from `TaxHailingSystem`.`passenger`;
