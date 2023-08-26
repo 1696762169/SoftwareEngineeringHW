@@ -20,5 +20,10 @@
     "van-icon": "vant-weapp/icon/index",
     "van-row": "vant-weapp/row/index",
     "van-col": "vant-weapp/col/index"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "微信小程序请求获取你的位置" 
+    }
   }
 }

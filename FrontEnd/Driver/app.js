@@ -14,6 +14,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    mapKey: "1bab7ff9f3848982e9583480a426c038"
   }
 })
