@@ -1,10 +1,4 @@
 /* pages/work/result/result.wxss */
-.page-container {
-  /* 设置页面容器样式，确保内容不超出屏幕 */
-  height: 100vh; /* 100% 屏幕高度 */
-  display: flex;
-  flex-direction: column;
-}
 
 .info-container {
   height: 80%;

@@ -1,6 +1,5 @@
 <!--pages/work/result/result.wxml-->
 <view class="page-container">
-  <!-- 页面内容 -->
   <view class="result-title" style="padding-top: 200rpx;">今日工作收入</view>
   <view class="result" style="padding-top: 50rpx;">{{income}} 元</view>
   <view class="result-title" style="padding-top: 80rpx;">今日工作时长</view>

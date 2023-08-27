@@ -1,4 +1,11 @@
 /**app.wxss**/
+.page-container {
+  /* 设置页面容器样式，确保内容不超出屏幕 */
+  height: 100vh; /* 100% 屏幕高度 */
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -7,7 +14,7 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
 
 .left-right-container {
   display: flex;

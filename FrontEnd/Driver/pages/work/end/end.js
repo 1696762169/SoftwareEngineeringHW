@@ -1,66 +1,36 @@
 // pages/work/end/end.js
+const app = getApp();
+const urlConst = require("../../../utils/url");
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    order: null,
+    timeHour: 0,
+    timeMin: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
+    // 生成行程时间
+    app.globalData.order.time = Math.ceil(Math.random() * 10 - 5 + app.globalData.order.period);
+    let order = app.globalData.order;
 
+    // 设置页面信息
+    this.setData({
+      order: order,
+      timeHour: Math.ceil(order.time / 60),
+      timeMin: order.time % 60,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // 返回接单首页
+  goHome() {
+    wx.reLaunch({
+      url: urlConst.workIndex,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+    // 清除订单缓存
+    app.globalData.order = null;
   }
 })
