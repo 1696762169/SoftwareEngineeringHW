@@ -1,0 +1,19 @@
+<view class="page">
+  <!--显示地图+makertap选点控制-->
+  <view class="map_container">
+    <map class="map" name="" longitude="{{longitude}}" latitude="{{latitude}}" scale="16"  show-location="true" markers="{{markers}}"bindmarkertap="makertap" >
+    </map>
+  </view>
+  <view class="start_container">
+    <image src="../../imgs/cle1.png"></image>
+    <text class="start"> {{startData.name}}_上车</text>
+  </view>
+  <view class="over_container">
+    <image src="../../imgs/cle.png"></image>
+    <input   placeholder="{{textData.name}}"placeholder-style="color:red" auto-focus bindtouchstart="startInput"/>
+  </view>
+  <view class="map-1" bindtap="getRoute">
+    <image src="../../imgs/jt.png"></image>
+    <view>打车</view>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/finish/finish.wxml-->
+<!--绘制地图-->
+<view class="map_box" >
+  <map id="navi_map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}" polyline="{{polyline}}" show-location="true"></map>
+</view>
+<!--具体信息-->>
+<view class="text_box" >
+  <view class="text">{{distance}}</view>
+	<view class="text">{{time}}</view>
+	<view class="text">{{cost}}</view>
+</view>
+<!--确认订单-->
+<view class="confirm_box">
+  <view class="detail_button" bindtouchstart="goPay">支付</view>
+</view>

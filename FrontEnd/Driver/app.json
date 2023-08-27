@@ -2,12 +2,17 @@
   "pages": [
     "pages/work/index/index",
     "pages/logs/logs",
-    "pages/signup/signup",
+    "pages/user/signup/signup",
     "components/tabbar/tabbar",
     "pages/history/index/index",
     "pages/user/index/index",
     "components/order/order",
-    "pages/history/order/order"
+    "pages/history/order/order",
+    "pages/work/end/end",
+    "pages/work/driving/driving",
+    "pages/work/result/result",
+    "pages/work/confirm/confirm",
+    "components/pre-order/pre-order"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,12 +23,29 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-icon": "vant-weapp/icon/index",
+    "van-button": "vant-weapp/button/index",
     "van-row": "vant-weapp/row/index",
     "van-col": "vant-weapp/col/index"
   },
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [{
+      "pagePath": "pages/work/index/index",
+      "text": "接单"
+    },{
+      "pagePath": "pages/history/index/index",
+      "text": "历史"
+    },{
+      "pagePath": "pages/user/index/index",
+      "text": "我的"
+    }]
+  },
   "permission": {
     "scope.userLocation": {
-      "desc": "微信小程序请求获取你的位置" 
+      "desc": "微信小程序请求获取你的位置"
     }
   }
 }

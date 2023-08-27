@@ -1,4 +1,38 @@
 <!--pages/user/index/index.wxml-->
-<text>pages/user/index/index.wxml</text>
+<view style="height: {{windowHeight}}px; width: 100%; display: flex; flex-direction: column;">
+  <!-- 个人信息 -->
+  <van-cell-group>
+    <van-cell title="微信用户名" value="{{userInfo != null ? userInfo.nickName : '未登录'}}" />
+    <van-cell title="微信头像" style="height: 100rpx;">
+      <image src="{{userInfo != null ? userInfo.avatarUrl : 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'}}" mode="aspectFit" style="width: 100rpx; height: 100rpx;" />
+    </van-cell>
+    <van-cell title="绑定的手机号" value="{{userInfo != null ? userInfo.phoneNumber : '未登录'}}" />
+  </van-cell-group>
 
-<tabbar id="tabbar"></tabbar>
+  <!-- 车辆信息 -->
+  <van-cell-group wx:if="{{userInfo != null}}">
+      <van-field wx:if="{{editingCarNumber}}" label="车牌号码" placeholder="请输入车牌号码" bind:blur="editCarNumber" catch:confirm="editCarNumber"/>
+      <van-cell wx:else title="车牌号码" value="{{userInfo.carInfo.carNumber}}" catch:click="editCarNumber" />
+      <van-field wx:if="{{editingCarDesc}}" label="车辆型号" placeholder="请输入车辆型号" bind:blur="editCarDesc" catch:confirm="editCarDesc"/>
+      <van-cell wx:else title="车辆型号" value="{{userInfo.carInfo.carDesc}}" catch:click="editCarDesc" />
+  </van-cell-group>
+
+  <view style="display: flex; flex-direction: column; margin-top: auto;">
+    <!-- <van-button custom-class="bottom-button" size="large" bind:tap="handleFeedback">反馈投诉</van-button> -->
+    <!-- 登录注册 -->
+    <van-row wx:if="{{userInfo == null}}">
+      <van-col span="12">
+        <van-button type="primary" catch:click="handleLogin" loading="{{loadingLogin}}" loading-text="登录中..."  custom-class="large-button" size="large" >登录</van-button>
+      </van-col>
+      <van-col span="12">
+        <van-button type="warning" catch:click="handleSignup" custom-class="large-button" size="large">注册</van-button>
+      </van-col>
+    </van-row>
+    <view wx:else>
+      <van-button custom-class="bottom-button" type="default" size="large" bind:tap="handleLogout">切换账号</van-button>
+      <van-button custom-class="bottom-button" type="danger" size="large" bind:tap="handleDeleteAccount">注销账号</van-button>
+    </view>
+  </view>
+</view>
+
+<tabbar id="tabbar" activeTab="{{2}}"></tabbar>

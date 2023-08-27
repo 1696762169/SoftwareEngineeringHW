@@ -1,0 +1,15 @@
+<!--pages/wait/wait.wxml-->
+<!--绘制地图-->
+<view class="map_box" >
+  <map id="navi_map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}" show-location="true"></map>
+</view>
+<!--绘制计时-->>
+<view class='progress_box'>
+        <view class="progress_text">
+            <text class='progress_info'> {{progress_txt}}</text>
+            <text class="progress_time">{{time}}</text>
+        </view>    
+    </view>
+<view class="ft">
+    <view class="cancel" bindtap="toCancel">取消订单</view>
+</view>

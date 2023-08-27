@@ -1,1 +1,6 @@
 /* pages/work/index/index.wxss */
+.fixed-button-area {
+  position: fixed;
+  padding-top: 20rpx;
+  z-index: 2;
+}

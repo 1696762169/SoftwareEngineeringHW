@@ -1,0 +1,98 @@
+/**index.wxss**/
+.page{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    align-items: flex-start;  
+    justify-content: space-around;
+    padding: 0rpx 0rpx 0rpx 0rpx;
+  }
+.map_container{
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    left: 0;
+    right: 0;
+  }
+  .map{
+    width: 100%;
+    height: 100%;
+  }
+  .start_container{
+    position: absolute;
+    top: 900rpx;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50rpx;
+    margin-top: 2%;
+    display: flex;
+    align-items: center
+  }
+  .over_container{
+    position: absolute;
+    top: 1000rpx;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50rpx;
+    margin-top: 2%;
+    display: flex;
+    align-items: center
+  }
+  .start_container image {
+    background: #fff;
+    height: 100rpx;
+    width: 100rpx;
+    align-self: center;
+  }
+  .start_container text{
+      margin-left: 3%;
+      background: #fff;
+      width: 700rpx;
+      margin:0rpx;
+      height: 100rpx;
+      border-radius: 10rpx;
+      font-size: 30rpx;
+      text-align: left;
+      line-height:100rpx;
+      color:#036108;}
+  .over_container image {
+    background: #fff;
+    height: 100rpx;
+    width: 100rpx;
+    align-self: center;
+  }
+ .over_container input{
+        background: rgb(253, 253, 253);
+        width: 450rpx;
+        margin:5rpx;
+        height: 100rpx;
+        border-radius: 10rpx;
+        font-size: .8rem;
+        text-align: left;
+        line-height:70rpx;
+        color:rgb(7, 7, 7);}
+        .weui-tab__content{
+          padding-top: 60px;
+          text-align: center;
+      }
+      .map-1{
+        width: 125rpx;
+        height: 125rpx;
+        border-radius: 120rpx;
+        background-color: #4D8AD7;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color:#ffffff;
+        font-size: 34rpx;
+        position: absolute;
+        top:900rpx;
+        right: 40rpx;
+      }
+      .map-1 image{
+        width: 60rpx;
+        height: 80rpx;
+      }

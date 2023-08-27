@@ -1,4 +1,4 @@
-// pages/signup/signup.js
+// pages/login/login.js
 Page({
 
   /**

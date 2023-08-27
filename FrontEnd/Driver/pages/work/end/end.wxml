@@ -1,0 +1,11 @@
+<!--pages/work/end/end.wxml-->
+<view class="page-container">
+  <view class="result-title" style="padding-top: 180rpx;">行程已结束</view>
+  <view class="result-title" style="padding-top: 80rpx;">本次订单收入</view>
+  <view class="result" style="padding-top: 50rpx;">{{order.price}} 元</view>
+  <view class="result-title" style="padding-top: 80rpx;">本次行程时长</view>
+  <view class="result" style="padding-top: 50rpx;"><text wx:if="{{timeHour}}">{{timeHour}} 小时</text> {{timeMin}} 分钟</view>
+  <view class="bottom-button-container">
+    <van-button type="primary" bind:tap="goHome">返回接单首页</van-button>
+  </view>
+</view>

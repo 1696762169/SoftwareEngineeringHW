@@ -1,28 +1,36 @@
 // components/tabbar/tabbar.js
-Page({
-  data: {
-    active: 0,
-  },
-  onChange(event) {
-    // event.detail 的值为当前选中项的索引
-    if (event.detail == this.data.active)
-      return;
-    this.setData({ active: event.detail });
+const urlConst = require("../../utils/url");
 
-    var url = "/pages/work/index/index";
-    switch (event.detail) {
-      case 0:
-        url = "/pages/work/index/index";
-        break;
-      case 1:
-        url = "/pages/history/index/index";
-        break;
-      case 2:
-        url = "/pages/user/index/index";
-        break;
-    }
-    wx.redirectTo({
-      url: url,
-    });
+Component({
+  properties: {
+    activeTab: Number,
   },
+  methods: {
+    onChange(event) {
+      // event.detail 的值为当前选中项的索引
+      if (`${event.detail}` == this.properties.activeTab)
+        return;
+  
+      var url = urlConst.workIndex;
+      switch (event.detail) {
+        case 0:
+          url = urlConst.workIndex;
+          break;
+        case 1:
+          url = urlConst.historyIndex;
+          break;
+        case 2:
+          url = urlConst.userIndex;
+          break;
+      }
+      
+      wx.switchTab({
+        url: url,
+        // success: function() {
+        //   getApp().globalData.avtiveTab = event.detail;
+        //   console.log(getApp().globalData.avtiveTab);
+        // }
+      });
+    },
+  }
 });

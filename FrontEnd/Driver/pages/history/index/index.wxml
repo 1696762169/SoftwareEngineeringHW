@@ -1,12 +1,14 @@
 <!--pages/history/index/index.wxml-->
 <scroll-view id="scroll-area" style="height: {{scrollHeight}};" scroll-y>
-  <order wx:for="{{orderList}}" wx:key="{{orderId}}"
+  <order wx:if="{{login}}" wx:for="{{orderList}}" wx:key="orderId"
   orderId="{{item.orderId}}"
   price="{{item.price}}"
   state="{{item.state}}"
   start="{{item.start}}"
   end="{{item.end}}"
-  time="{{item.time}}"></order>
+  time="{{item.time}}">
+  </order>
+  <view wx:if="{{!login}}" style="display:flex;justify-content: center;align-items: center;height: 100%;font-size:larger;">请登录后查看历史订单</view>
 </scroll-view>
 
-<tabbar id="tabbar"></tabbar>
+<tabbar id="tabbar" activeTab="{{1}}"></tabbar>
