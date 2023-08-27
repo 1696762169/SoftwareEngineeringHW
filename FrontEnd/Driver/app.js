@@ -14,8 +14,10 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
-    mapKey: "1bab7ff9f3848982e9583480a426c038",
-    tabbarHeight: 84
+    userInfo: null, // 当前用户信息缓存
+    working: true,  // 当前是否在工作
+    order: null,  // 当前订单缓存
+    mapKey: "1bab7ff9f3848982e9583480a426c038",   // 高德地图API
+    tabbarHeight: 84, // 底部导航栏高度
   }
 })

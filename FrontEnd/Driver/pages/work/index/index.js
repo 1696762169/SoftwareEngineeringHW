@@ -1,4 +1,6 @@
 // pages/work/index/index.js
+const app = getApp();
+
 Page({
   data: {
     latitude: "31.285568",
@@ -7,6 +9,9 @@ Page({
   },
 
   onLoad(options) {
+    // 获取工作状态
+    this.setData({working: app.globalData.working});
+
     // 设置页面显示范围高度
     wx.getSystemInfo({
       success: (res) => {
@@ -36,21 +41,20 @@ Page({
       "period" : 37,
       }
     ]});
-
-    // 监听工作结算返回事件
-    
   },
 
   // 切换工作状态
   switchState() {
     if (!this.data.working){
       this.setData({working: true});
+      app.globalData.working = this.data.working;
     } else {
       wx.navigateTo({
         url: "/pages/work/result/result",
         success: page => {
           page.eventChannel.once("confirm", confirm => {
             this.setData({working: !confirm});
+            app.globalData.working = this.data.working;
           });
         }
       })

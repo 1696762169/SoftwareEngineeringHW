@@ -1,2 +1,27 @@
 <!--pages/work/driving/driving.wxml-->
-<text>pages/work/driving/driving.wxml</text>
+<view style="height: 60vh; width: 100%;">
+  <map class="map" id="map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{true}}" polyline="{{polyline}}"></map>
+</view>
+<van-cell-group>
+  <van-cell id="order-area" title="订单预估金额：{{order.price}}￥" size="large" use-label-slot>
+    <view slot="label">
+      <view class="van-cell-label">起点：{{order.startAddress}}</view>
+      <view class="van-cell-label">终点：{{order.endAddress}}</view>
+      <view class="van-cell-label">预估行程时长：{{order.period}}分钟</view>
+    </view>
+  </van-cell>
+  <van-cell id="passenger-area" title="乘客：{{passenger.name}}" size="large" use-label-slot>
+    <view slot="right-icon">
+      <van-button type="primary" size="small">呼叫乘客</van-button>
+    </view>
+    <view slot="label">
+      <view class="van-cell-label">虚拟手机号：{{passenger.phone}}</view>
+      <view class="van-cell-label">手机尾号：{{passenger.phoneEnd}}</view>
+    </view>
+  </van-cell>
+</van-cell-group>
+<view style="display: flex; justify-content: center;">
+  <van-button wx:if="{{!passengerOn}}" class="bottom-button" type="primary" catch:tap="orderStart">乘客上车</van-button>
+  <van-button wx:if="{{passengerOn}}" class="bottom-button" type="primary" catch:tap="orderEnd">订单完成</van-button>
+  <van-button wx:if="{{!passengerOn}}" class="bottom-button" type="danger" catch:tap="cancelOrder">取消订单</van-button>
+</view>

@@ -47,7 +47,7 @@ Page({
 
   // 获取司机信息
   getDriver(driverId, callback) {
-    const driver = { "orderId" : driverId,
+    const driver = { "driverId" : driverId,
     "name" : "滴滴司机",
     "phone" : "13673957593",
     "car" : "沪A7F8H2",

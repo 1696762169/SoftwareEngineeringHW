@@ -40,6 +40,15 @@ const setMapRoute = (start, end, component) => {
   })
 }
 
+// 获取当前经纬度坐标
+const getCurPosition = (callback, mockPosition) => {
+  callback({
+    longitude: mockPosition.longitude + Math.random() * 0.1 - 0.05,
+    latitude: mockPosition.latitude + Math.random() * 0.1 - 0.05,
+  })
+}
+
 module.exports = {
-  setMapRoute
+  setMapRoute,
+  getCurPosition
 }

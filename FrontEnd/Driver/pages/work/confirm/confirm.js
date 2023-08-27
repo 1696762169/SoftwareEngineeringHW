@@ -37,18 +37,30 @@ Page({
     const order = { orderId : orderId,
       price : 13.44,
       distance : 53.56,
-      period : 134,
+      period : 125,
       startPeriod : 5,
       start : {latitude: 40.034513, longitude: 114.432451},
       end : {latitude: 39.824366, longitude: 115.721614},
       startAddress : "上海市杨浦区同济大学",
       endAddress : "上海市嘉定区黄渡理工",
+      distance : 53.56,
+      time : 134,
+      rank : 5, 
+      passengerId : 54321,
+      driverId : 12345
     };
     callback(order);
   },
 
   // 确认接单
   confirm() {
-
+      wx.reLaunch({
+      url: "/pages/work/driving/driving",
+      success: res => {
+        // 通过globalData向被打开页面传送数据
+        getApp().globalData.order = this.data.order;
+      }
+    })
+    // 通知后端已接单
   }
 })
