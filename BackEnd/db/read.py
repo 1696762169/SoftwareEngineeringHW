@@ -35,6 +35,7 @@ def SearchOrderByOrderID(order_id):
     record_names = ('order_number','order_time','order_status','passenger_no','driver_no','order_price','order_start_longitude','order_start_latitude','order_end_longitude','order_end_latitude','order_start','order_end','P_comment_no','D_comment_no')
     sql = 'SELECT * FROM `order` WHERE order_number = %s'
     DR = DbResult(record_names, baseSelect(sql, (order_id)))
+    return DR
 
 def SearchDriverByOrderID(order_id):
     record_names = ('driver_name','driver_no','driver_phonenumber','car_no',
@@ -48,6 +49,11 @@ def SearchDriverByOrderID(order_id):
     DR2 = DbResult(record_names, baseSelect(sql2, (DR1.records()[0]['driver_id'])))
     return DR2
 
+def SearchPlacedOrders():
+    record_names = ('order_number','order_time','order_status','passenger_no','driver_no','order_price','order_start_longitude','order_start_latitude','order_end_longitude','order_end_latitude','order_start','order_end','P_comment_no','D_comment_no')
+    sql = 'SELECT * FROM `order` WHERE order_status = %d'
+    DR = DbResult(record_names, baseSelect(sql, (0)))#刚下单还没有接单
+    return DR
 
 if __name__=="__main__":
     # DR=SearchHistoryOrdersByWeChatID("passenger","123456")

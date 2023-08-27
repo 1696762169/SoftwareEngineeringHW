@@ -40,3 +40,12 @@ def acceptOrder(driver_no,order_number):
         record_names, baseSelect(sql2, (order_number))
     )
     return DR
+def payOrder(order_number):
+    sql1 = "UPDATE `order` AS O SET O.order_status = %d WHERE O.order_number = %s"
+    baseSelect(sql1, (5, order_number))#5代表订单取消的状态
+    sql2 = "SELECT * FROM `order` WHERE order_number = %s"
+    record_names = ('order_number','order_time','order_status','passenger_no','driver_no','order_price','order_start_longitude','order_start_latitude','order_end_longitude','order_end_latitude','order_start','order_end','P_comment_no','D_comment_no')
+    DR = DbResult(
+        record_names, baseSelect(sql2, (order_number))
+    )
+    return DR

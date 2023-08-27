@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import create
+from  ..db import create,read
 
 PlaceOrder = Blueprint('PlaceOrder', __name__, url_prefix='/place-order')
 
@@ -32,3 +32,32 @@ def PlaceOrder():
         return jsonify({
             'message': 'PLACE_ORDER_UNKNOWN'
         })
+    
+
+DriverMonitorOrderPlaced= Blueprint('DriverMonitorOrderPlaced', __name__, url_prefix='/monitor-order-placed')
+
+@DriverMonitorOrderPlaced.route('', methods=['POST'])#前端不断地发消息给后端，监测订单是否被接受
+def DriverMonitorOrderPlaced():
+    try:
+        data = request.get_json() 
+        print("data:", data)
+
+        order_number = data['order_number']
+
+        DR=read.SearchPlacedOrders()
+
+        if DR.size() == 0 :#一个也没有
+            return jsonify({"message": 'NO_ORDER_AVAILABLE'})
+        else:
+           #存在下单的订单，则返回订单内容
+            return jsonify({
+                'message': 'ORDER_AVAILABLE',
+                'size':DR.size(),
+                'available_orders':DR.records()
+                })
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({
+            'message': 'ACCEPT_ORDER_UNKNOWN'
+        })
+    
