@@ -6,10 +6,12 @@ const workDriving = "/pages/work/driving/driving";
 const workEnd = "/pages/work/end/end";
 const workResult = "/pages/work/result/result";
 
-const historyIndex = "/pages/history/index/index"
-const historyOrder = "/pages/history/order/order"
+const historyIndex = "/pages/history/index/index";
+const historyOrder = "/pages/history/order/order";
 
-const signup = "/pages/signup/signup"
+const userIndex = "/pages/user/index/index";
+
+const signup = "/pages/signup/signup";
 
 module.exports = {
   workIndex,
@@ -19,5 +21,6 @@ module.exports = {
   workResult,
   historyIndex,
   historyOrder,
+  userIndex,
   signup,
 }

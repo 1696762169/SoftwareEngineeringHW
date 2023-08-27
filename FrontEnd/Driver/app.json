@@ -27,6 +27,22 @@
     "van-row": "vant-weapp/row/index",
     "van-col": "vant-weapp/col/index"
   },
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [{
+      "pagePath": "pages/work/index/index",
+      "text": "接单"
+    },{
+      "pagePath": "pages/history/index/index",
+      "text": "历史"
+    },{
+      "pagePath": "pages/user/index/index",
+      "text": "我的"
+    }]
+  },
   "permission": {
     "scope.userLocation": {
       "desc": "微信小程序请求获取你的位置"

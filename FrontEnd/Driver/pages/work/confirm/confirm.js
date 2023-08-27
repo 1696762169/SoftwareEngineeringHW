@@ -1,6 +1,6 @@
 // pages/work/confirm/confirm.js
 const mapUtil = require("../../../utils/map");
-const util = require("../../../utils/util");
+const urlConst = require("../../../utils/url");
 
 Page({
   data: {
@@ -55,7 +55,7 @@ Page({
   // 确认接单
   confirm() {
       wx.reLaunch({
-      url: "/pages/work/driving/driving",
+      url: urlConst.workDriving,
       success: res => {
         // 通过globalData向被打开页面传送数据
         getApp().globalData.order = this.data.order;

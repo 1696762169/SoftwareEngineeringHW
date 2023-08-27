@@ -1,4 +1,4 @@
 <!--pages/user/index/index.wxml-->
 <text>pages/user/index/index.wxml</text>
 
-<tabbar id="tabbar"></tabbar>
+<tabbar id="tabbar" activeTab="{{2}}"></tabbar>

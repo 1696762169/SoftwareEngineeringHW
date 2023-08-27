@@ -1,25 +1,13 @@
 // pages/history/index/index.js
-
 const utils = require("../../../utils/util");
+const app = getApp();
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
+    // wx.hideTabBar();
     this.selectComponent("#tabbar").setData({active: 1});
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady() {
     // 设置高度区域
     utils.tabbarTop((top) =>{

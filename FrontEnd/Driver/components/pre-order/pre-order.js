@@ -1,4 +1,6 @@
 // components/pre-order/pre-order.js
+const urlConst = require("../../utils/url");
+
 Component({
   // 定义属性
   properties: {
@@ -13,7 +15,7 @@ Component({
     enterOrder() {
       const orderId = this.properties.orderId;
       wx.navigateTo({
-        url: "/pages/work/confirm/confirm",
+        url: urlConst.workConfirm,
         success: page => {
           // 通过eventChannel向被打开页面传送数据
           page.eventChannel.emit("orderId", orderId);

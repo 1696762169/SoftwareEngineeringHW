@@ -20,4 +20,4 @@
       period="{{item.period}}"></order>
   </scroll-view>
 </view>
-<tabbar></tabbar>
+<tabbar id="tabbar" activeTab="{{0}}"></tabbar>

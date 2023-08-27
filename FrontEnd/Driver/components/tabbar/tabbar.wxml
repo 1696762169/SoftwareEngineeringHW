@@ -1,5 +1,6 @@
 <!-- components/tabbar/tabbar.wxml -->
-<van-tabbar active="{{ active }}" bind:change="onChange">
+<van-tabbar active="{{ activeTab }}" bind:change="onChange">
+<!-- <van-tabbar active="1" bind:change="onChange"> -->
   <van-tabbar-item icon="logistics">接单</van-tabbar-item>
   <van-tabbar-item icon="records">历史</van-tabbar-item>
   <van-tabbar-item icon="user-o">我的</van-tabbar-item>

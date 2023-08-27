@@ -1,5 +1,6 @@
 // pages/work/index/index.js
 const app = getApp();
+const urlConst = require("../../../utils/url");
 
 Page({
   data: {
@@ -9,6 +10,7 @@ Page({
   },
 
   onLoad(options) {
+    // wx.hideTabBar();
     // 获取工作状态
     this.setData({working: app.globalData.working});
 
@@ -50,7 +52,7 @@ Page({
       app.globalData.working = this.data.working;
     } else {
       wx.navigateTo({
-        url: "/pages/work/result/result",
+        url: urlConst.workResult,
         success: page => {
           page.eventChannel.once("confirm", confirm => {
             this.setData({working: !confirm});

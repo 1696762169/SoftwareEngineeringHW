@@ -1,5 +1,6 @@
 // pages/work/driving/driving.js
 const mapUtil = require("../../../utils/map");
+const urlConst = require("../../../utils/url");
 
 Page({
   data: {
@@ -42,10 +43,10 @@ Page({
   // 订单完成
   orderEnd() {
     wx.reLaunch({
-      url: "/pages/work/end/end",
+      url: urlConst.workEnd,
     })
   },
-  
+
   // 取消订单
   cancelOrder() {
     wx.showModal({
@@ -57,7 +58,7 @@ Page({
       success: res => {
         if (res.confirm) {
           // 用户点击了确定按钮
-          wx.reLaunch({ url: "/pages/work/index/index" });
+          wx.reLaunch({ url: urlConst.workIndex });
         } else if (res.cancel) {
           // 用户点击了取消按钮
         }
