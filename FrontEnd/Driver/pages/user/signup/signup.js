@@ -62,7 +62,7 @@ Page({
       });
     } else if (!util.isValidIdNumber(this.data.idNumber) || !util.isValidPlateNumber(this.data.plateNumber)) {
       wx.showToast({
-        title: "请填写完整信息",
+        title: "信息格式有误",
         icon: "error"
       });
     } else {

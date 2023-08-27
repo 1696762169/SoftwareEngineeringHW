@@ -13,7 +13,7 @@
     <map class="map" id="map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{true}}"></map>
   </view>
   <scroll-view style="height: 55%; width: 100%;" scroll-y>
-    <order wx:if="{{login}}" wx:for="{{orderList}}" wx:key="orderId"
+    <order wx:if="{{login && working}}" wx:for="{{orderList}}" wx:key="orderId"
       orderId="{{item.orderId}}"
       price="{{item.price}}"
       start="{{item.start}}"
@@ -21,6 +21,7 @@
       period="{{item.period}}">
     </order>
     <view wx:if="{{!login}}" style="display:flex;justify-content: center;align-items: center;height: 100%;font-size:larger;">请登录后接单</view>
+    <view wx:if="{{login && !working}}" style="display:flex;justify-content: center;align-items: center;height: 100%;font-size:larger;">请点击开始工作后接单</view>
   </scroll-view>
 </view>
 <tabbar id="tabbar" activeTab="{{0}}"></tabbar>
