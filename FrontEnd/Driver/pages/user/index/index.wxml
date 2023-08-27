@@ -11,14 +11,14 @@
 
   <!-- 车辆信息 -->
   <van-cell-group wx:if="{{userInfo != null}}">
-      <van-field wx:if="{{editingCarNumber}}" label="车牌号码" placeholder="请输入车牌号码" bind:blur="editCarNumber" />
-      <van-cell wx:else title="车牌号码" value="{{userInfo.carInfo.carNumber}}" catch:click="editCarNumber" catch:confirm="editCarNumber"/>
-      <van-field wx:if="{{editingCarDesc}}" label="车辆型号" placeholder="请输入车辆型号" bind:blur="editCarDesc" />
-      <van-cell wx:else title="车辆型号" value="{{userInfo.carInfo.carDesc}}" catch:click="editCarDesc" catch:confirm="editCarDesc"/>
+      <van-field wx:if="{{editingCarNumber}}" label="车牌号码" placeholder="请输入车牌号码" bind:blur="editCarNumber" catch:confirm="editCarNumber"/>
+      <van-cell wx:else title="车牌号码" value="{{userInfo.carInfo.carNumber}}" catch:click="editCarNumber" />
+      <van-field wx:if="{{editingCarDesc}}" label="车辆型号" placeholder="请输入车辆型号" bind:blur="editCarDesc" catch:confirm="editCarDesc"/>
+      <van-cell wx:else title="车辆型号" value="{{userInfo.carInfo.carDesc}}" catch:click="editCarDesc" />
   </van-cell-group>
 
   <view style="display: flex; flex-direction: column; margin-top: auto;">
-    <van-button custom-class="bottom-button" size="large" bind:tap="handleFeedback">反馈投诉</van-button>
+    <!-- <van-button custom-class="bottom-button" size="large" bind:tap="handleFeedback">反馈投诉</van-button> -->
     <!-- 登录注册 -->
     <van-row wx:if="{{userInfo == null}}">
       <van-col span="12">

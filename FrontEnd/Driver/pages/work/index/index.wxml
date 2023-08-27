@@ -3,8 +3,9 @@
   <van-button  catch:tap="switchState"
     type="{{working ? 'danger' : 'primary'}}"
     size="{{working ? 'small' : 'normal'}}"
-    style="padding-left: {{working ? 600 : 550}}rpx;">
-    {{working ? "结束工作" : "开始工作"}}
+    style="padding-left: {{working ? 600 : 550}}rpx;"
+    disabled="{{!login}}">
+    {{!login? "请登录" : working ? "结束工作" : "开始工作"}}
   </van-button>
 </view>
 <view style="height: {{windowHeight}}px; width: 100%;">
@@ -12,12 +13,14 @@
     <map class="map" id="map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{true}}"></map>
   </view>
   <scroll-view style="height: 55%; width: 100%;" scroll-y>
-    <order wx:for="{{orderList}}" wx:key="orderId"
+    <order wx:if="{{login}}" wx:for="{{orderList}}" wx:key="orderId"
       orderId="{{item.orderId}}"
       price="{{item.price}}"
       start="{{item.start}}"
       end="{{item.end}}"
-      period="{{item.period}}"></order>
+      period="{{item.period}}">
+    </order>
+    <view wx:if="{{!login}}" style="display:flex;justify-content: center;align-items: center;height: 100%;font-size:larger;">请登录后接单</view>
   </scroll-view>
 </view>
 <tabbar id="tabbar" activeTab="{{0}}"></tabbar>

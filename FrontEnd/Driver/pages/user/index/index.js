@@ -12,7 +12,9 @@ Page({
   },
   onShow(options) {
     // 获取用户信息
-    this.setData({userInfo: app.globalData.userInfo});
+    if (app.globalData.userInfo.login){
+      this.setData({ userInfo: app.globalData.userInfo });
+    }
 
     // 设置页面显示范围高度
     wx.getSystemInfo({
@@ -26,36 +28,26 @@ Page({
 
   // 登录按钮点击事件
   handleLogin() {
-    if (app.globalData.userInfo == null || !app.globalData.userInfo.login) {
-      this.setData({loadingLogin: true});
-    wx.getUserProfile({
-      desc: "小程序请求获取您的账号信息",
-      success: res => {
-        // 获取手机号
-        util.getPhoneNumber(number => {
-          res.userInfo.phoneNumber = number;
-          // 获取车辆信息
-          this.getCarInfo(carInfo => {
-            res.userInfo.carInfo = carInfo;
-            res.userInfo.login = true;
-            // 记录用户信息
-            util.setUserInfo(res.userInfo);
-            this.setData({
-              userInfo: res.userInfo,
-              loadingLogin: false,
-            });
+    // if (app.globalData.userInfo == null || !app.globalData.userInfo.login) {
+      this.setData({ loadingLogin: true });
+      util.getUserProfile(userInfo => {
+        // 获取车辆信息
+        this.getCarInfo(carInfo => {
+          userInfo.carInfo = carInfo;
+          userInfo.login = true;
+          // 记录用户信息
+          util.setUserInfo(userInfo);
+          this.setData({
+            userInfo: userInfo,
+            loadingLogin: false,
           });
-        })
-      },
-      fail: function (res) {
-        console.log('用户拒绝授权或其他错误：', res);
-      }
-    });
-    } else {
-      app.globalData.userInfo.login = true;
-      util.setUserInfo(app.globalData.userInfo);
-      this.setData({ userInfo: app.globalData.userInfo });
-    }
+        });
+      });
+    // } else {
+    //   app.globalData.userInfo.login = true;
+    //   util.setUserInfo(app.globalData.userInfo);
+    //   this.setData({ userInfo: app.globalData.userInfo });
+    // }
   },
 
   // 注册按钮点击事件
@@ -63,7 +55,7 @@ Page({
     wx.navigateTo({
       url: urlConst.signup,
       success: page => {
-
+        page.eventChannel.once("login", () => {this.handleLogin();});
       }
     })
   },
@@ -79,7 +71,7 @@ Page({
     // 清除用户信息，返回未登录状态
     app.globalData.userInfo.login = false;
     util.setUserInfo(app.globalData.userInfo);
-    this.setData({userInfo: null});
+    this.setData({ userInfo: null });
   },
 
   // 注销账号按钮点击事件
@@ -105,7 +97,9 @@ Page({
       this.setData({ editingCarNumber: true });
     } else {
       let userInfo = this.data.userInfo;
-      userInfo.carInfo.carNumber = event.detail.value;
+      if (util.isValidPlateNumber(event.detail.value)) {
+        userInfo.carInfo.carNumber = event.detail.value;
+      }
       util.setUserInfo(userInfo);
       this.setData({
         userInfo: userInfo,
@@ -119,7 +113,9 @@ Page({
       this.setData({ editingCarDesc: true });
     } else {
       let userInfo = this.data.userInfo;
-      userInfo.carInfo.carDesc = event.detail.value;
+      if (event.detail.value != "") {
+        userInfo.carInfo.carDesc = event.detail.value;
+      }
       util.setUserInfo(userInfo);
       this.setData({
         userInfo: userInfo,
@@ -129,7 +125,7 @@ Page({
   },
 
   getCarInfo(callback) {
-    if (app.globalData.userInfo == null){
+    if (app.globalData.userInfo == null) {
       callback({
         carNumber: "沪A7F8H2",
         carDesc: "普通轿车"

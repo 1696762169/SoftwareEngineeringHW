@@ -3,7 +3,13 @@ const utils = require("../../../utils/util");
 const app = getApp();
 
 Page({
-  onLoad() {
+  data: {
+    login: false,
+  },
+  onShow() {
+    this.setData({
+      login: app.globalData.userInfo != null && app.globalData.userInfo.login
+    });
     // 设置高度区域
     utils.tabbarTop((top) =>{
       this.setData({"scrollHeight": `${top}px`});

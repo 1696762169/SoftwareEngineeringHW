@@ -6,13 +6,17 @@ Page({
   data: {
     latitude: "31.285568",
     longitude: "121.214785",
-    working: true
+    working: true,
+    login: false,
   },
 
   onShow(options) {
     // wx.hideTabBar();
     // 获取工作状态
-    this.setData({working: app.globalData.working});
+    this.setData({
+      working: app.globalData.working,
+      login: app.globalData.userInfo != null && app.globalData.userInfo.login
+    });
     
     // 设置页面显示范围高度
     wx.getSystemInfo({

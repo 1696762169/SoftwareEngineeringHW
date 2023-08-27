@@ -1,7 +1,7 @@
 const host = "https://127.0.0.1:8080";
 
 const workIndex = "/pages/work/index/index";
-const workConfirm = host + "/pages/work/confirm/confirm";
+const workConfirm = "/pages/work/confirm/confirm";
 const workDriving = "/pages/work/driving/driving";
 const workEnd = "/pages/work/end/end";
 const workResult = "/pages/work/result/result";

@@ -10,7 +10,7 @@ App({
 
     // 登录并获取OpenId
     util.getBackData(res => {
-      this.globalData.openId = res.data.openId;
+      this.globalData.openId = res.data.openid;
     });
     // 尝试获取本地存储的用户信息
     const userInfo = util.getUserInfoFromStorage();
