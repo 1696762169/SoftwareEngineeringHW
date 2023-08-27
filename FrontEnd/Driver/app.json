@@ -2,7 +2,7 @@
   "pages": [
     "pages/work/index/index",
     "pages/logs/logs",
-    "pages/signup/signup",
+    "pages/user/signup/signup",
     "components/tabbar/tabbar",
     "pages/history/index/index",
     "pages/user/index/index",

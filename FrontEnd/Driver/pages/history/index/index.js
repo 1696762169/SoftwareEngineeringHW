@@ -3,12 +3,7 @@ const utils = require("../../../utils/util");
 const app = getApp();
 
 Page({
-  onLoad(options) {
-    // wx.hideTabBar();
-    this.selectComponent("#tabbar").setData({active: 1});
-  },
-
-  onReady() {
+  onLoad() {
     // 设置高度区域
     utils.tabbarTop((top) =>{
       this.setData({"scrollHeight": `${top}px`});

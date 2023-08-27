@@ -1,0 +1,35 @@
+<!--pages/signup/signup.wxml-->
+<view class="form-container">
+  <!-- 基本信息 -->
+  <van-cell title="微信用户名" value="{{userInfo.nickName}}" />
+  <van-cell title="微信头像">
+    <image src="{{userInfo.avatarUrl}}" mode="aspectFit" />
+  </van-cell>
+  <van-cell title="绑定的手机号" value="{{userInfo.phoneNumber}}" />
+
+  <!-- 实名认证 -->
+  <van-field
+    label="姓名"
+    placeholder="请输入姓名"
+    bind:input="handleNameInput"
+  />
+  <van-field
+    label="身份证号码"
+    placeholder="请输入身份证号码"
+    bind:input="handleIdInput"
+  />
+
+  <!-- 车辆信息 -->
+  <van-field
+    label="车牌号码"
+    placeholder="请输入车牌号码"
+    bind:input="handlePlateInput"
+  />
+  <van-field
+    label="车辆型号描述"
+    placeholder="请输入车辆型号描述"
+    bind:input="handleModelInput"
+  />
+
+  <van-button type="primary" bind:tap="handleSubmit">提交</van-button>
+</view>

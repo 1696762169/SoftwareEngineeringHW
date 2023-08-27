@@ -33,8 +33,50 @@ const tabbarTop = (callback) => {
   // }).exec();
 }
 
+const getBackData = callback => {
+  wx.login({
+    success: loginRes => {
+      // 发送 res.code 到后台换取 openId
+        const globalData = getApp().globalData;
+        wx.request({
+        url: `https://api.weixin.qq.com/sns/jscode2session?appid=${globalData.appId}&secret=${globalData.appSecret}&js_code=${loginRes.code}&grant_type=authorization_code`,
+        success: apiRes => {
+          callback(apiRes);
+          }
+        });
+    }
+  });
+}
+
+const getPhoneNumber = callback => {
+  if (getApp().globalData.userInfo == null){
+    callback("13466576857");
+  } else {
+    callback(getApp().globalData.userInfo.phoneNumber);
+  }
+}
+
+// 从本地存储获取用户信息
+const getUserInfoFromStorage = () => {
+  return wx.getStorageSync("userInfo");
+}
+
+// 设置用户信息
+const setUserInfo = userInfo => {
+  try {
+    wx.setStorageSync("userInfo", userInfo);
+    getApp().globalData.userInfo = userInfo;
+  } catch (e) {
+    console.error("保存用户信息失败：", e);
+  }
+}
+
 module.exports = {
   formatTime,
   formatNumber,
-  tabbarTop
+  tabbarTop,
+  getBackData,
+  getPhoneNumber,
+  getUserInfoFromStorage,
+  setUserInfo,
 }

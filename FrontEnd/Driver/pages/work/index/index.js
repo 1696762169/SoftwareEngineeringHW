@@ -9,11 +9,11 @@ Page({
     working: true
   },
 
-  onLoad(options) {
+  onShow(options) {
     // wx.hideTabBar();
     // 获取工作状态
     this.setData({working: app.globalData.working});
-
+    
     // 设置页面显示范围高度
     wx.getSystemInfo({
       success: (res) => {
