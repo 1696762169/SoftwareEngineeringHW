@@ -1,11 +1,11 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import create,read
+from  db import create,read
 
-PlaceOrder = Blueprint('PlaceOrder', __name__, url_prefix='/place-order')
+PlaceOrderBP = Blueprint('PlaceOrder', __name__, url_prefix='/place-order')
 
-@PlaceOrder.route('', methods=['POST'])
+@PlaceOrderBP.route('', methods=['POST'])
 def PlaceOrder():
     try:
         data = request.get_json() 
@@ -34,9 +34,9 @@ def PlaceOrder():
         })
     
 
-DriverMonitorOrderPlaced= Blueprint('DriverMonitorOrderPlaced', __name__, url_prefix='/monitor-order-placed')
+DriverMonitorOrderPlacedBP= Blueprint('DriverMonitorOrderPlaced', __name__, url_prefix='/monitor-order-placed')
 
-@DriverMonitorOrderPlaced.route('', methods=['POST'])#前端不断地发消息给后端，监测订单是否被接受
+@DriverMonitorOrderPlacedBP.route('', methods=['POST'])#前端不断地发消息给后端，监测订单是否被接受
 def DriverMonitorOrderPlaced():
     try:
         data = request.get_json() 

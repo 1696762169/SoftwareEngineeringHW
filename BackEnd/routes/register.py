@@ -1,12 +1,12 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import read,create
+from  db import read,create
 
 
-register = Blueprint('register', __name__, url_prefix='/apply-register')
+registerBP = Blueprint('register', __name__, url_prefix='/apply-register')
 
-@register.route('', methods=['POST'])
+@registerBP.route('', methods=['POST'])
 def register():
     try:
         data = request.get_json() # get json

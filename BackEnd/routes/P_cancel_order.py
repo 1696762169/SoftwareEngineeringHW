@@ -1,11 +1,11 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import modify
+from  db import modify
 
-CancelOrder = Blueprint('CancelOrder', __name__, url_prefix='/cancel-order')
+CancelOrderBP = Blueprint('CancelOrder', __name__, url_prefix='/cancel-order')
 
-@CancelOrder.route('', methods=['POST'])
+@CancelOrderBP.route('', methods=['POST'])
 def CancelOrder():
     try:
         data = request.get_json() 

@@ -1,12 +1,12 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import modify,read
-from ..db import DbResult
-from ..db import baseSelect
-AcceptOrder = Blueprint('AcceptOrder', __name__, url_prefix='/accept-order')
+from db import modify,read
+from db import DbResult
+from db import baseSelect
+AcceptOrderBP = Blueprint('AcceptOrder', __name__, url_prefix='/accept-order')
 
-@AcceptOrder.route('', methods=['POST'])
+@AcceptOrderBP.route('', methods=['POST'])
 def AcceptOrder():
     try:
         data = request.get_json() 
@@ -27,9 +27,9 @@ def AcceptOrder():
             'message': 'ACCEPT_ORDER_UNKNOWN'
         })
     
-PassengerMonitorOrderAccepted= Blueprint('PassengerMonitorOrderAccepted', __name__, url_prefix='/monitor-order-Accepted')
+PassengerMonitorOrderAcceptedBP= Blueprint('PassengerMonitorOrderAccepted', __name__, url_prefix='/monitor-order-Accepted')
 
-@PassengerMonitorOrderAccepted.route('', methods=['POST'])#前端不断地发消息给后端，监测订单是否被接受
+@PassengerMonitorOrderAcceptedBP.route('', methods=['POST'])#前端不断地发消息给后端，监测订单是否被接受
 def PassengerMonitorOrderAccepted():
     try:
         data = request.get_json() 

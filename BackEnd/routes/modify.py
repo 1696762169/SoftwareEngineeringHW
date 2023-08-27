@@ -1,11 +1,11 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import modify
+from  db import modify
 
-modify = Blueprint('modify', __name__, url_prefix='/apply-modify-info')
+modifyBP = Blueprint('modify', __name__, url_prefix='/apply-modify-info')
 
-@modify.route('', methods=['POST'])
+@modifyBP.route('', methods=['POST'])
 def modify():
     try:
         data = request.get_json() # get json

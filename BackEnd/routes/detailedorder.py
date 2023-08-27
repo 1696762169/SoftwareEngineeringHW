@@ -1,12 +1,12 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import read
+from  db import read
 
 
-detailedbill = Blueprint('detailedbill', __name__, url_prefix='/detailed-bill')
+detailedbillBP = Blueprint('detailedbill', __name__, url_prefix='/detailed-bill')
 
-@detailedbill.route('', methods=['POST'])
+@detailedbillBP.route('', methods=['POST'])
 def detailedbill():
     try:
         data = request.get_json() 

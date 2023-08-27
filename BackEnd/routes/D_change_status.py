@@ -1,11 +1,11 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import modify
+from  db import modify
 
-ToggleShift = Blueprint('ToggleShift', __name__, url_prefix='/toggle-shift')
+ToggleShiftBP = Blueprint('ToggleShift', __name__, url_prefix='/toggle-shift')
 
-@ToggleShift.route('', methods=['POST'])
+@ToggleShiftBP.route('', methods=['POST'])
 def ToggleShift():
     try:
         data = request.get_json() 

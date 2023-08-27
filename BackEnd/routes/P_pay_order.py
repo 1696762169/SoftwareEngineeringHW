@@ -1,11 +1,11 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import modify
+from  db import modify
 
-PayOrder = Blueprint('PayOrder', __name__, url_prefix='/pay-order')
+PayOrderBP = Blueprint('PayOrder', __name__, url_prefix='/pay-order')
 
-@PayOrder.route('', methods=['POST'])
+@PayOrderBP.route('', methods=['POST'])
 def PayOrder():
     try:
         data = request.get_json() 

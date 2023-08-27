@@ -1,12 +1,12 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import read
+from db import read
 
 
-orderhistory = Blueprint('orderhistory', __name__, url_prefix='/order-history')
+orderhistoryBP = Blueprint('orderhistory', __name__, url_prefix='/order-history')
 
-@orderhistory.route('', methods=['POST'])
+@orderhistoryBP.route('', methods=['POST'])
 def orderhistory():
     try:
         data = request.get_json() 

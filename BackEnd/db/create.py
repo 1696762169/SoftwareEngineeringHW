@@ -1,5 +1,34 @@
-from __init__ import DbResult
-from __init__ import baseSelect
+# from . import DbResult
+from . import baseSelect
+
+class DbResult(object):
+
+    def __init__(self, record_names, records):
+        self.__length = len(records)
+        self.__Record = namedtuple('Record', record_names)
+        self.__records = []
+        try:
+            for each_record in records:
+                self.__records.append(self.__Record._make(each_record))
+        except Exception as e:
+            print('An error occurred when processing records:')
+            traceback.print_exc()
+        self.__records = tuple(self.__records)
+    # 返回记录的数量
+    def size(self):
+        return self.__length
+
+    # 返回 记录 与字段名匹配的 由 命名元组 组成的 元组
+    def rawRecords(self):
+        return self.__records
+
+    # 返回 记录 与字段名匹配的 由 字典 组成的 元组
+    def records(self):
+        self.__records_dict = []
+        for each_record in self.__records:
+            self.__records_dict.append(dict(each_record._asdict()))
+        self.__records_dict = tuple(self.__records_dict)
+        return self.__records_dict
 
 def userInsert(user_type,name,no):
     if user_type=="passenger":

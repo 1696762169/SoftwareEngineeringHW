@@ -1,13 +1,13 @@
 from flask import Blueprint, jsonify
 from flask import request, make_response
 import traceback
-from  ..db import read,create
+from db import read
 
 
 
-login = Blueprint('login', __name__, url_prefix='/apply-login')
+loginBP = Blueprint('login', __name__, url_prefix='/apply-login')
 
-@login.route('', methods=['POST'])
+@loginBP.route('', methods=['POST'])
 def login():
     try:
         data = request.get_json() # get json
