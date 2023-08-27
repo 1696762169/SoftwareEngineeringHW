@@ -1,0 +1,7 @@
+<!--pages/choose_end/choose_end.wxml-->
+<view class="section">
+  <input bindinput="bindInput" placeholder="搜索" focus="true" />
+</view>
+<view bindtouchstart="bindSearch" data-keywords_e="{{item.name}}" class="text_box" wx:for="{{tips}}" wx:key="key">
+  {{item.name}}
+</view>

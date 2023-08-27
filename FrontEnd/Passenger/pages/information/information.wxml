@@ -1,0 +1,53 @@
+<!--pages/information/information.wxml-->
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+			<view class="avatar_box">
+				<view class="userinfo-avatar">
+					<open-data type="userAvatarUrl"></open-data>
+				</view>
+			</view>
+			<view class="name_box">
+				<view class="userinfo-nickname">
+				<text>用户名:</text>
+				<open-data type="userNickName"></open-data>
+				</view>
+			</view>
+			<form bindsubmit="changephone">
+				<view class="userinfo-phone">
+				<text>手机号:</text>
+				<input value="{{phone}}"type='text'name='phone' />
+				</view>
+				<view class="confirm_box">
+					<button class="change_button" formType="submit" type='primary'>修改</button>
+				</view>
+			</form>
+			<view class="error_box">			
+				<text>{{error}}</text>
+			</view>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+		<block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+			<view class="userinfo-phone">
+			<text>手机号:</text>
+			<input placeholder="{{phone}}"/>
+			</view>
+    </block>
+  </view>
+<view class="choose_box">
+	<view class="response"bindtouchstart="toresponse">
+	<text>反馈投诉</text>
+	</view>
+	<view class="change"bindtouchstart="change">
+		<text>切换账号</text></view>
+	<view class="cancel"bindtouchstart="delete">
+		<text>注销账号</text></view>
+</view>
+</view>
