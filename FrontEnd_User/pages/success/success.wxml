@@ -1,0 +1,43 @@
+<!--pages/success/success.wxml-->
+<!--绘制地图-->
+<view class="map_box" >
+  <map id="navi_map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}" polyline="{{polyline}}" show-location="true"></map>
+</view>
+<!--具体信息-->>
+<view class="text_box">
+	<view class="route_box" >
+		<view class="distance_box">
+			<text>距离目标:</text>
+			<view class="distance">
+			<text>{{distance}}</text>
+			</view>
+		</view>
+		<view class="time_box">
+			<text>剩余时间:</text>
+			<view class="time">
+			<text>{{time}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="info_box">
+		<view class="info"wx:if="{{status=='0' ? 'active' : ''}}">
+			司机姓名:{{driver.name}}</view>
+		<view class="info"wx:if="{{status=='0' ? 'active' : ''}}">
+			联系方式:{{driver.phone}}</view>
+	</view>
+	<view class="car_box">
+		<view class="car_ID"wx:if="{{status=='0' ? 'active' : ''}}">
+		车牌号码:
+		<view class="carID">{{driver.carID}}</view>
+		</view>
+		<view class="car_Type"wx:if="{{status=='0' ? 'active' : ''}}">
+		车辆类型:
+			<view class="carType">{{driver.carType}}</view>
+		</view>
+	</view>
+</view>
+<!--确认订单-->
+<view class="confirm_box">
+  <view class="cancel_button"wx:if="{{status=='0' ? 'active' : ''}}" bindtouchstart="toCancel">取消下单</view>
+	<view class="unable_button"wx:if="{{status!='0' ? 'active' : ''}}" >取消下单</view>
+</view>

@@ -1,0 +1,9 @@
+/* components/order/order.wxss */
+.order{
+  width: 100%;
+}
+.van-cell-label{
+  display: flex;
+  flex-direction: row;
+  width:170px;
+}

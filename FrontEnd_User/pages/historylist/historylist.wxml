@@ -1,0 +1,13 @@
+<!--pages/historylist/historylist.wxml-->
+<scroll-view id="scroll-area" style="height: {{scrollHeight}};" scroll-y>
+  <order wx:for="{{orderList}}" wx:key="{{orderId}}"
+  orderId="{{item.orderId}}"
+  price="{{item.price}}"
+  state="{{item.state}}"
+  start="{{item.start}}"
+  end="{{item.end}}"
+  time="{{item.time}}"></order>
+</scroll-view>
+
+<tabbar id="tabbar"></tabbar>
+

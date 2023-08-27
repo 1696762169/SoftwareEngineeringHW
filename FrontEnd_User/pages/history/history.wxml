@@ -1,0 +1,23 @@
+<!--pages/history/history.wxml-->
+<view style="height: {{mapHeight}}px; width: 100%;">
+  <map class="map" id="map" latitude="31.285568" longitude="121.214785" scale="14" show-location="{{true}}" polyline="{{polyline}}"markers="{{markers}}">
+  </map>
+</view>
+<van-cell-group id="info-area">
+  <van-cell title="订单信息 {{order.price}}￥" value="{{order.orderId}}" size="large" use-label-slot>
+    <view slot="label">
+      <view class="van-cell-label">行程距离：{{order.distance}}km</view>
+      <view class="van-cell-label">行程时长：{{order.time}}分钟</view>
+    </view>
+  </van-cell>
+  <!-- <van-cell title="司机信息 {{driver.name}}￥" value="{{driver.car}}" size="large" border="{{false}}"></van-cell> -->
+  <van-cell wx:if="{{showDriver}}" title="司机信息 {{driver.name}}" use-label-slot size="large" border="{{false}}">
+    <view slot="label">
+      <view class="van-cell-label">联系电话：{{driver.phone}}</view>
+      <view class="van-cell-label">车牌号码{{driver.car}}</view>
+    </view>
+    <view slot="right-icon">
+      <van-button plain hairline type="danger" size="small" catch:tap="complain">投诉</van-button>
+    </view>
+  </van-cell>
+</van-cell-group>

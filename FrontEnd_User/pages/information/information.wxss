@@ -1,0 +1,117 @@
+/**index.wxss**/
+.userinfo {
+	position: absolute;
+	top: 50rpx;
+	bottom: 0rpx;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	
+}
+.avatar_box
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.userinfo-avatar {
+  overflow: hidden;
+  width: 192rpx;
+  height: 192rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.name_box
+{
+	width: 750rpx;
+	height: 64rpx;
+	margin: 20rpx;
+}
+.userinfo-phone {
+  display: flex;
+	flex-direction: row;
+	margin: 20rpx;
+}
+.userinfo input
+{
+	background: #fff;
+        width: 400rpx;
+        margin:5rpx;
+        height: 50rpx;
+        border-radius: 10rpx;
+        text-align: left;
+        line-height:70rpx;
+				color:rgb(7, 7, 7);
+				border: 1px solid #4d4d4d;
+}
+.confirm_box{
+  position:absolute;
+  height: 0px;
+  bottom: 250px;
+  left: 0px;
+  right: 0px;
+}
+.change_button:not([size='mini']){
+  position:absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 3px 5px;
+  color: #fff;
+  background: #0091ff;
+	width: 50px;
+	height:50px;
+  text-align:center;
+  border-radius:5px;
+}
+.error_box{
+	display: flex;
+	font-size: small;
+	color: rgb(245, 37, 37);
+}
+.choose_box
+{
+	position: absolute;
+	bottom: 50rpx;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size:large;
+	font-weight: 700;
+
+}
+.response
+{
+  width: 700rpx;
+	height: 80rpx;
+	border: 1px solid #4d4d4d;
+	margin: 20rpx;
+	text-align: center;
+	background-color: #0091ff;
+	color: #fff;
+	border-radius:10px;
+}
+.change
+{
+  width: 700rpx;
+	height: 80rpx;
+	border: 1px solid #4d4d4d;
+	margin: 20rpx;
+	text-align: center;
+	background-color: #0091ff;
+	color: #fff;
+	border-radius:10px;
+}
+.cancel
+{
+  width: 700rpx;
+	height: 80rpx;
+	border: 1px solid #4d4d4d;
+	margin: 20rpx;
+	text-align: center;
+	background-color: #0091ff;
+	color: #fff;
+	border-radius:10px;
+}

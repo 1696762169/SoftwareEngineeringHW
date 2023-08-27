@@ -1,0 +1,61 @@
+/* pages/wait/wait.wxss */
+.map_box{
+  position:absolute;
+  top: 0px;
+  bottom: 130px;
+  left: 0px;
+  right: 0px;
+}
+#navi_map{
+  width: 100%;
+  height: 100%;
+}
+.progress_box{
+	position:absolute;
+	bottom: -10px;
+	left: 120px;
+	width:73px;
+	height: 220px; 
+	display: flex; 
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+.progress_text{
+	position: absolute;
+	display: flex; 
+	align-items: center;
+	flex-direction: column;
+	justify-content: center
+}
+.progress_info{  
+	font-size: 26rpx;
+	color: #666666;
+	letter-spacing: 2rpx;
+	padding-bottom: 26rpx;
+ 
+}
+.progress_time{
+	font-size: 55rpx;
+	border-radius:50px;
+	text-align: center;
+	color: #fc9153;
+}
+.ft{
+  position:absolute;
+	bottom: 30px;
+	left: 7px;
+	width: 710rpx;
+	height: 88rpx;
+	background-color: #0091ff;
+	box-shadow:  #f5f6f7;
+	text-align: center;
+	line-height: 88rpx;
+	color: #fff;
+	bottom: 10rpx;
+}
+.ft .cancel{
+
+	box-sizing: border-box;
+	border-right: 1px solid #eee;
+}

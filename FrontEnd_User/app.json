@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/history/history",
+    "pages/information/information",
+    "pages/choose_end/choose_end",
+    "pages/choose_start/choose_start",
+    "pages/confirm/confirm",
+    "pages/wait/wait",
+    "pages/success/success",
+    "pages/cancel/cancel",
+    "pages/finish/finish",
+    "pages/response/response",
+    "pages/historylist/historylist"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#33a3dc",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "打车",
+        "iconPath": "/imgs/Taxi.png",
+        "selectedIconPath": "/imgs/auto.png"
+      },
+      {
+        "pagePath": "pages/historylist/historylist",
+        "text": "历史",
+        "iconPath": "/imgs/email.png",
+        "selectedIconPath": "/imgs/edit.png"
+      },
+      {
+        "pagePath": "pages/information/information",
+        "text": "我的",
+        "iconPath": "/imgs/Tourist.png",
+        "selectedIconPath": "/imgs/me.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  }
+}

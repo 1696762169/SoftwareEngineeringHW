@@ -1,0 +1,49 @@
+page{
+	background-color: white;
+}
+.opinion_wrap{
+	position: absolute;
+	bottom: 140rpx;
+	left: 0;
+	right: 0
+}
+.content_wrap, .phone{
+	width: 96%;
+	background-color: #fff;
+	border-radius: 10rpx;
+	margin: 20rpx auto;
+	box-shadow: 0px 0px 10px 2px rgb(0 0 0 / 8%);
+}
+.content{
+	padding: 20rpx;
+	margin: 0 auto;
+	border-radius: 10rpx;
+}
+textarea{
+	min-height: 500rpx;
+	width: 100%;
+}
+input{
+	margin-top: 30rpx;
+	height: 100rpx;
+	padding-left: 20rpx;
+	background-color: #fff;
+}
+button{
+color: white;
+border: none;
+width: 85%;
+padding: 10rpx 0rpx;
+margin: 40rpx auto;
+background: #2b85e4;
+border-radius: 40rpx;
+font-size: 30rpx;
+}
+
+.button_active{
+background: #5cadff;
+}
+.placeholder{
+	color: #b6b6b6;
+	font-size: 14px;
+}
